@@ -1,12 +1,26 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "puka-IoT客户端",
+    "navigationBarTitleText": "轨迹锁",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "position":"top",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "开锁"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

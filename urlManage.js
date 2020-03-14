@@ -1,4 +1,4 @@
-const host = 'http://122.112.156.177:8013';
+const host = 'http://test.szntzhwl.net:8810';
 
 var urlConfig = {
   host,
@@ -7,12 +7,10 @@ var urlConfig = {
    */
   api: {
     host,
-    //获取灯的状态
-    bulbStatusUrl: `${host}/app/getBulbStatus`,
-    //获取设备的状态
-    operationPiStatusUrl: `${host}/app/getOperationPiStatus`,
-    //发送指令
-    sendCommandUrl: `${host}/app/sendCommand`
+    //开锁
+    unlockUrl: `${host}/command/unlock/`,
+    //设备定位列表
+    positionListUrl: `${host}/monitor/getPositionListByImei/`
   }
 
 };
