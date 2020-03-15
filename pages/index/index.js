@@ -49,7 +49,7 @@ Page({
         }, function () {
           wx.hideToast();
           showBusySuccess("下发成功")
-          setTimeout(this.cancelDisable, 5000);
+          setTimeout(this.cancelDisable, 10000);
         })
       } else {
         wx.showToast({
