@@ -8,9 +8,9 @@ var urlConfig = {
   api: {
     host,
     //开锁
-    unlockUrl: `${host}/command/unlock/`,
+    unlockUrl: `${host}/strokeManage/unLock/`,
     //设备定位列表
-    positionListUrl: `${host}/monitor/getPositionListByImei/`
+    positionListUrl: `${host}/strokeManage/currentPointList/`
   }
 
 };
