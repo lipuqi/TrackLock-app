@@ -29,27 +29,36 @@ Page({
    */
   onShow: function () {
     var that = this;
+    let positionListUrl = url.api.positionListUrl + "19d5d725-bd09-4e7e-b72c-0c0fbea051ff";
     showBusyLoading("获取数据中");
-    app.post(url.api.positionListUrl,{bindingSign:"a5ee484ebe664c42b7"}).then(function (res) {
+    app.get(positionListUrl).then(function (res) {
       if (res.code == 200) {
-        var arr = new Array();
-        for (var item in res.datas) {
-          var data = res.datas[item];
-          arr[item] = {
-            "longitude": data.gcj02_longitude,
-            "latitude": data.gcj02_latitude
-          };
+        if (res.datas){
+          var arr = new Array();
+          for (var item in res.datas) {
+            var data = res.datas[item];
+            arr[item] = {
+              "longitude": data.longitude,
+              "latitude": data.latitude
+            };
+          }
+          that.setData({
+            polyline: [{
+              points: arr,
+              color: "#FF0000DD",
+              width: 3,
+              dottedLine: true
+            }],
+            longitude: res.datas[0].longitude,
+            latitude: res.datas[0].latitude
+          })
+        } else {
+          wx.showToast({
+            title: '暂无数据',
+            icon: 'none',
+            duration: 1000
+          })
         }
-        that.setData({
-          polyline: [{
-            points: arr,
-            color: "#FF0000DD",
-            width: 3,
-            dottedLine: true
-          }],
-          longitude: res.datas[0].longitude,
-          latitude: res.datas[0].latitude
-        })
         wx.hideToast();
       } else {
         wx.showToast({

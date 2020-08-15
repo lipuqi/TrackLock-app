@@ -1,4 +1,4 @@
-const host = 'https://test.box-china.com';
+const host = 'http://test.szntzhwl.net:8810';
 
 var urlConfig = {
   host,
@@ -7,12 +7,10 @@ var urlConfig = {
    */
   api: {
     host,
-    //登录
-    loginUrl: `${host}/tk/login`,
     //开锁
-    unlockUrl: `${host}/tk/strokeManage/unLock/`,
+    unlockUrl: `${host}/strokeManage/unLock/`,
     //设备定位列表
-    positionListUrl: `${host}/tk/strokeManage/pointList`
+    positionListUrl: `${host}/strokeManage/currentPointList/`
   }
 
 };
