@@ -29,16 +29,15 @@ Page({
    */
   onShow: function () {
     var that = this;
-    let positionListUrl = url.api.positionListUrl + "863716040748763";
     showBusyLoading("获取数据中");
-    app.get(positionListUrl).then(function (res) {
+    app.post(url.api.positionListUrl,{bindingSign:"a5ee484ebe664c42b7"}).then(function (res) {
       if (res.code == 200) {
         var arr = new Array();
         for (var item in res.datas) {
           var data = res.datas[item];
           arr[item] = {
-            "longitude": data.longitude,
-            "latitude": data.latitude
+            "longitude": data.gcj02_longitude,
+            "latitude": data.gcj02_latitude
           };
         }
         that.setData({
